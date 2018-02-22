@@ -42,7 +42,7 @@ class UserProfile(models.Model):
 	location = models.CharField(blank=True, max_length=255)
 	bio = models.TextField(blank=True)
 	dob = models.DateField(blank=True)
-	university = models.ForeignKey(University)
+	university = models.ForeignKey(University, blank=True, null=True, on_delete=models.SET_NULL)
 
 	def __str__(self):
 		return self.user.first_name + " " + self.user.last_name + " (" + self.university + " )"
