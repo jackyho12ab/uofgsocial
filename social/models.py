@@ -9,13 +9,22 @@ from django.contrib.auth.models import User
 class College(models.Model):
 	name = models.CharField(max_length=255)
 
+	def __str__(self):
+		return self.name
+
 class Subject(models.Model):
 	name = models.CharField(max_length=255)
 	college = models.ForeignKey(College)
 
+	def __str__(self):
+		return self.name
+
 class Module(models.Model):
 	name = models.CharField(max_length=255)
 	subject = models.ForeignKey(Subject)
+
+	def __str__(self):
+		return self.name
 
 class UserProfile(models.Model):
 	user = models.OneToOneField(User)
