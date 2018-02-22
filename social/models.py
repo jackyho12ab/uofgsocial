@@ -6,8 +6,18 @@ from django.contrib.auth.models import User
 
 # Create your models here.
 
+class University(models.Model):
+	name = models.CharField(max_length=255)
+	logo = models.ImageField(blank=True)
+	colour = models.CharField(max_length=6)
+	email_domain = models.CharField(max_length=255)
+
+	def __str__(self):
+		return self.name
+
 class College(models.Model):
 	name = models.CharField(max_length=255)
+	university = models.ForeignKey(University)
 
 	def __str__(self):
 		return self.name
@@ -32,10 +42,17 @@ class UserProfile(models.Model):
 	location = models.CharField(blank=True, max_length=255)
 	bio = models.TextField(blank=True)
 	dob = models.DateField(blank=True)
+	university = models.ForeignKey(University)
+
+	def __str__(self):
+		return self.user.first_name + " " + self.user.last_name + " (" + self.university + " )"
 
 class Follow(models.Model):
 	user = models.ForeignKey(User)
 	module = models.ForeignKey(Module)
+
+	def __str__(self):
+		return self.user.first_name + " " + self.user.last_name + " follows " + self.module
 
 class Post(models.Model):
 	content = models.TextField()
