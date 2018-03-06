@@ -19,7 +19,7 @@
 /* Splash Image Div */
 
   .splashImage {
-    height: 350px;
+    height: 450px;
     width: 100%;
     overflow: hidden;
   }
@@ -33,11 +33,11 @@
     height: 240px;
     position:absolute;
     overflow: hidden;
-    top: -240px;
+    top: 900px;
   }
 
   #logoNoSidenav {
-    top : 280px;
+    top : 300px;
   }
 
     @media screen and (max-width: 1200px) {
