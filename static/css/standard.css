@@ -65,14 +65,22 @@
   }
 
   .mainButton {
-    width: 100%;
+    /*width: 100%;*/
     height: 63px;
     background-color: #383b7e;
     color: white;
     float: right;
     margin-top: -70px;
-    margin-right: 15px;
+    /*margin-right: 15px;*/
 
+    position: absolute;
+    left: 35px;
+    right: 22px;
+
+  }
+
+  .mainButton a {
+    color: white;
   }
 
 
