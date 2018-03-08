@@ -7,10 +7,11 @@
     <div class="mainButton">
       <center>
         {% if user.is_authenticated %}
-        <h1><a href="{% url 'register' %}">Create a new post!</a></h1></center>
+        <a href="{% url 'register' %}">Create a new post!</a>
         {% else %}
-        <h1><a href="{% url 'register' %}">Click Here To Sign Up!</a></h1></center>
+        <a href="{% url 'register' %}">Click Here To Sign Up!</a>
         {% endif %}
+      </center>
     </div>
   </div>
 </div>
