@@ -8,6 +8,7 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE',
 import django
 django.setup()
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 from social.models import University, College, Subject, Module, UserProfile, Follow, Post, Comment, Notification
 
 ##### THIS ONE IS WRITTEN TO WORK FOR MODULE MODEL THAT HAS 3 FOREIGN KEYS
@@ -125,6 +126,8 @@ if __name__ == '__main__':
 #            for sub, sub_data in sesubs.items():
 #                s = add_subject(
 =======
+=======
+>>>>>>> Stashed changes
 from uofgconnect import University, College, Subject, Module, UserProfile, Follow, Post, Comment, Notification
 
 
@@ -171,6 +174,9 @@ def populate():
             add_college(u, c[""], c[""]
             for sub, sub_data in sesubs.items():
                 s = add_subject(
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 
 
@@ -214,11 +220,17 @@ def add_university(name, colour, domain):
     return u
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 """
 =======
+=======
+>>>>>>> Stashed changes
 
 # Execution
 if __name__ == '__main__':
     print("Starting UofGSocial population script...")
     populate()
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes

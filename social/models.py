@@ -17,7 +17,11 @@ class University(models.Model):
 	def save(self, *args, **kwargs):
                 self.slug = slugify(self.name)
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
                 super(University, self).save(*args, **kwargs)
+=======
+                super(Category, self).save(*args, **kwargs)
+>>>>>>> Stashed changes
 =======
                 super(Category, self).save(*args, **kwargs)
 >>>>>>> Stashed changes
