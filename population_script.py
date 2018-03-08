@@ -7,6 +7,7 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE',
 
 import django
 django.setup()
+<<<<<<< Updated upstream
 from social.models import University, College, Subject, Module, UserProfile, Follow, Post, Comment, Notification
 
 ##### THIS ONE IS WRITTEN TO WORK FOR MODULE MODEL THAT HAS 3 FOREIGN KEYS
@@ -123,6 +124,54 @@ if __name__ == '__main__':
 #            add_college(u, c[""], c[""]
 #            for sub, sub_data in sesubs.items():
 #                s = add_subject(
+=======
+from uofgconnect import University, College, Subject, Module, UserProfile, Follow, Post, Comment, Notification
+
+
+def populate():
+
+    # modules
+    compsci_modules = [
+        {"name": "Computer Systems 2"},
+        {"name": "Java Progamming 2"},
+        {"name": "Algorithmic Foundations 2"}
+        ]
+
+    maths_modules = [
+        {"name": "Maths 2D"},
+        {"name": "Maths 2E"}
+        ]
+
+    music_modules = [
+        {"name": "Listening through Analysis"},
+        {"name": "Jazz and Blues"}
+         ]
+
+    # Subjects
+    sesubs = {"Computing Science": compsci_modules,
+              "Maths": maths_modules,
+        }
+        
+    msubs = {"Music": music_modules,}
+
+    # Colleges
+    uofgcolleges = {
+        "College of Science and Engineering": sesubs,
+        "College of Arts": msubs,
+        }
+
+    # Universities
+    unis = {
+        "University of Glasgow": uofgcolleges,
+        }
+
+    for uni, uni_data in unis.items():
+        u = add_university(uni, uni_data[""], )
+        for c in uni_data["uofgcolleges"]:
+            add_college(u, c[""], c[""]
+            for sub, sub_data in sesubs.items():
+                s = add_subject(
+>>>>>>> Stashed changes
 
 
     # Print out universities
@@ -164,4 +213,12 @@ def add_university(name, colour, domain):
     u.save()
     return u
 
+<<<<<<< Updated upstream
 """
+=======
+
+# Execution
+if __name__ == '__main__':
+    print("Starting UofGSocial population script...")
+    populate()
+>>>>>>> Stashed changes
