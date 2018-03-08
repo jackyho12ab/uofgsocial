@@ -81,6 +81,11 @@
 
   .mainButton a {
     color: white;
+    font-size: 42px;
+  }
+
+  .mainButton a:hover, .mainButton a:active {
+    color: white;
   }
 
 
