@@ -22,6 +22,8 @@ from social import views
 
 urlpatterns = [
     url(r'^$', views.index, name='index'),
+    url(r'^register/$', views.register, name='register'),
     url(r'^social/', include('social.urls')),
     url(r'^admin/', admin.site.urls),
+    url(r'^content/', views.content, name='content'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
