@@ -8,7 +8,6 @@ import django
 django.setup()
 from social.models import University, College, Subject, Module, UserProfile, Follow, Post, Comment, Notification
 
-##### THIS ONE IS WRITTEN TO WORK FOR MODULE MODEL THAT HAS 3 FOREIGN KEYS
 def populate():
 
 	data = {
