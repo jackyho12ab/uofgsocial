@@ -5,7 +5,7 @@ from django.contrib.auth import authenticate, login
 from django.urls import reverse
 from django.shortcuts import render
 
-from social.forms import UserForm, UserProfileForm
+# from social.forms import UserForm, UserProfileForm
 
 # Create your views here.
 def index(request):

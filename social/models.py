@@ -26,24 +26,24 @@ class University(models.Model):
 
 class College(models.Model):
 	name = models.CharField(max_length=255, default='College of Science and Engineering')
+	university = models.ForeignKey(University, on_delete=models.CASCADE)
 
 	def __str__(self):
-		return self.name
+		return self.name + " (" + self.university.name + ")"
 
 class Subject(models.Model):
 	name = models.CharField(max_length=255, default='Computing Science')
+	college = models.ForeignKey(College, on_delete=models.CASCADE)
 
 	def __str__(self):
-		return self.name
+		return self.name + " (" + self.college.university.name + ")"
 
 class Module(models.Model):
 	name = models.CharField(max_length=255, default='Computing Science 1P')
 	subject = models.ForeignKey(Subject, on_delete=models.CASCADE)
-	college = models.ForeignKey(College, on_delete=models.CASCADE)
-	university = models.ForeignKey(University, on_delete=models.CASCADE)
 
 	def __str__(self):
-		return self.name
+		return self.name + " (" + self.subject.college.university.name + ")"
 
 class UserProfile(models.Model):
 	user = models.OneToOneField(User, on_delete=models.CASCADE)
