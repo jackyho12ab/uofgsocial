@@ -43,7 +43,7 @@ class Module(models.Model):
 	subject = models.ForeignKey(Subject, on_delete=models.CASCADE)
 
 	def __str__(self):
-		return self.name + " (" + self.subject.college.university.name + ")"
+		return self.name + " (" + self.subject.name + " - " + self.subject.college.university.name + ")"
 
 class UserProfile(models.Model):
 	user = models.OneToOneField(User, on_delete=models.CASCADE)
@@ -65,7 +65,7 @@ class Follow(models.Model):
                 verbose_name_plural = 'Followers'
 
 	def __str__(self):
-		return self.user.first_name + " " + self.user.last_name + " follows " + self.module
+		return self.user.first_name + " " + self.user.last_name + " follows " + str(self.module)
 
 class Post(models.Model):
 	content = models.TextField()
