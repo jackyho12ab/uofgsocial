@@ -55,7 +55,7 @@ class UserProfile(models.Model):
 	university = models.ForeignKey(University, blank=True, null=True, on_delete=models.SET_NULL)
 
 	def __str__(self):
-		return self.user.first_name + " " + self.user.last_name + " (" + self.university + " )"
+		return self.user.first_name + " " + self.user.last_name + " (" + str(self.university) + ")"
 
 class Follow(models.Model):
 	user = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -75,6 +75,9 @@ class Post(models.Model):
 	module = models.ForeignKey(Module, on_delete=models.CASCADE)
 	user = models.ForeignKey(User, on_delete=models.CASCADE)
 	created = models.DateTimeField(auto_now_add=True)
+
+	def __str__(self):
+		return "Post by " + self.user.first_name + " " + self.user.last_name + " on " + str(self.created)
 
 class Comment(models.Model):
 	content = models.TextField()

@@ -11,6 +11,8 @@ django.setup()
 from social.models import University, College, Subject, Module, UserProfile, Follow, Post, Comment, Notification
 from django.contrib.auth.models import User
 
+from datetime import date
+
 def populate():
 
 	userdata = [
@@ -128,6 +130,9 @@ def populate():
 			user.first_name = udata['fname']
 			user.last_name = udata['sname']
 			user.save()
+
+			up = UserProfile.objects.get_or_create(user=user, university=u, dob=date(random.randint(1990,2018), random.randint(1,13), random.randint(1,28)))[0]
+			up.save()
 
 			uni_users.append(user)
 
