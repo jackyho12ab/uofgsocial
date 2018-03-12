@@ -4,7 +4,7 @@
       <!-- main content area -->
       {% block body_block %}
       <div class="mainContentBox">
-        <h2> Title......</h2>
+        <h2> Who we are...</h2>
         <hr>
         <div class="contentBox">
           Content Content Content Content Content Content Content Content Content Content Content Content Content <br> Content Content Content Content Content Content Content Content Content Content Content Content Content Content Content Content Content
@@ -15,12 +15,21 @@
           Content Content Content Content Content Content Content Content Content Content Content Content Content Content Content Content Content Content Content Content Content Content Content Content Content Content Content Content Content Content Content
 
         </div>
-        <h2> Title... </h2>
+        <h2> Universities... </h2>
         <hr>
         <div class="row">
           <div class="col-sm-6">
             <div class="contentBox">
-              Item One <br> Item Two <br> Item Three <br> Item Four <br> Item Five <br> Item Six <br> Item Seven
+              Universities we currently accept :<br><br>
+              {% if Universities %}
+              <ul>
+              {% for Universities in University %}
+              <li>{{ University.name }}</li>
+              {% endfor %}
+              </ul>
+              {% else %}
+              We are not currently accepting users from any universities
+              {% endif %}
             </div>
           </div>
           <div class="col-sm-6">

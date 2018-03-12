@@ -7,32 +7,30 @@
       <div class="row">
         <!-- left hand content - contains logo image + basic details -->
         <div class="col-sm-2">
-          <div class="logoImage">
-            <img class="img-responsive" src="http://matchmaker.nsri.co.uk/images/researchers/University%20of%20Glasgow.jpg">
-          </div>
+          
 
           <div class="mainContentBox">
             <form>
 
               <div class="form-group">
-                <label for="exampleInputEmail1">Date Of Birth*</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter DOB">
+                <label for="DOBinput">Date Of Birth*</label>
+                <input type="text" class="form-control" id="DOBinput" aria-describedby="Date Of Birth" placeholder="{{ User.dob }}">
               </div>
               <div class="form-group">
-                <label for="exampleInputEmail1">Secondary Email</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter secondary email">
+                <label for="SecondayEmail">Secondary Email</label>
+                <input type="email" class="form-control" id="SecondaryEmail" aria-describedby="Non Student Email" placeholder="{{ User.email2 }}">
               </div>
               <div class="form-group">
-                <label for="exampleInputEmail1">Phone Number</label>
-                <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Phone Number">
+                <label for="PhoneNo">Phone Number</label>
+                <input type="number" class="form-control" id="Phone Number" aria-describedby="Phone Number" placeholder="{{ User.phoneNo }}">
               </div>
               <div class="form-group">
-                <label for="exampleInputEmail1">Location</label>
-                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Location">
+                <label for="Location">Location</label>
+                <input type="text" class="form-control" id="Location" aria-describedby="Location" placeholder="{{ User.location }}">
               </div>
               <div class="form-group">
-                <label for="exampleInputEmail1">Languages</label>
-                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Languages">
+                <label for="Languages">Languages</label>
+                <input type="text" class="form-control" id="Languages" aria-describedby="Languages" placeholder="{{ User.languages }}">
               </div>
           </div>
         </div>
@@ -54,7 +52,7 @@
               <h2> Bio......</h2>
               <hr>
               <div class="form-group">
-                <textarea class="form-control" rows="10" id="comment"></textarea>
+                <textarea class="form-control" rows="10" id="comment">{{ User.bio }}</textarea>
               </div>
             </div>
 

@@ -4,11 +4,11 @@
 <div class="mainContentBox">
   <div class="contentBox">
     <h2> Bio......</h2>
-    <hr> Content Content Content Content Content Content Content Content Content Content Content Content Content <br> Content Content Content Content Content Content Content Content Content Content Content Content Content Content Content Content
-    Content Content Content Content Content Content Content Content Content Content Content Content Content Content Content Content Content Content Content Content Content Content Content Content Content Content Content Content Content Content
-    Content Content Content Content Content Content <br> Content Content Content Content Content Content Content Content Content Content Content Content Content <br> Content Content Content Content Content Content Content Content Content Content
-    Content Content Content <br>
-
+    {% if user.content %}
+    <hr> {{ user.content }} <br>
+    {% else %}
+    <hr> This user has no bio.... <br>
+    {% endif %}
   </div>
 
 </div>

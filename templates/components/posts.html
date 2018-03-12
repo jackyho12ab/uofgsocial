@@ -4,6 +4,7 @@
 <div class="mainContentBox">
   <h2> Title......</h2>
   <hr>
+  {% for Posts in Post %}
   <div class="contentBox">
     <div class="row">
       <div class="col-sm-2">
@@ -12,23 +13,34 @@
         </div>
       </div>
       <div class="col-sm-10">
-        <div class="usernameText">Username</div> Posted About Title
+        <div class="usernameText">{{ Post.user }}</div> Posted About {{ Post.module }}
         <br> School * Subject * Name
         <br>
-        <div class="datetimeText">Datetime</div>
+        <div class="datetimeText">{{ Post.created }}</div>
       </div>
 
     </div>
     <div class="customDivder"></div>
-
-    Content Content Content Content Content Content Content Content Content Content Content Content Content <br> Content Content Content Content Content Content Content Content Content Content Content Content Content Content Content Content
-    Content Content Content Content Content Content Content Content Content Content Content Content Content Content Content Content Content Content Content Content Content Content Content Content Content Content Content Content Content Content
-    Content Content Content Content Content Content <br> Content Content Content Content Content Content Content Content Content Content Content Content Content <br> Content Content Content Content Content Content Content Content Content Content
-    Content Content Content <br>
+    {% if not Post.image %}
+    {{ Post.content }} <br>
+    {% else %}
+    <div class="row">
+      <div class="col-sm-9">
+        {{ Post.content}} <br>
+        <p>&nbsp;</p>
+      </div>
+      <div class="col-sm-3">
+        <div class="postImage">
+          <img class="img-responsive" src="{{ content.image }}">
+        </div>
+        Image
+      </div>
+    </div>
+    {% endif %}
     <div class="customDivder"></div>
     <div class="row">
       <center>
-        <div class="col-sm-4">Like <a href="#" data-toggle="tooltip" data-placement="bottom" title="User1<br>User2"><span class="badge badge-secondary">4</span></a></div>
+        <div class="col-sm-4">Like <a href="#" data-toggle="tooltip" data-placement="bottom" title="User1<br>User2"><span class="badge badge-secondary">{{ Post.likes }}</span></a></div>
         <div class="col-sm-4">
           <div class="btn-col" button data-toggle="collapse" data-target="#comments">Comment <span class="badge badge-secondary">4</span></div>
         </div>
@@ -38,16 +50,16 @@
 
     <div class="commentContainer">
       <div id="comments" class="collapse">
+        {% for Comments in Comment %}
         <div class="commentContainer" id="commentComment">
-          <div class="usernameText">Username</div> Posted at :
-          <div class="datetimeText">datetime</div>
+          <div class="usernameText">{{ Comment.user }}</div> Posted at :
+          <div class="datetimeText">{{ Comment.created }}</div>
           <div class="customDivder"></div>
-          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis
-            nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit
-            praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. </p>
-          <p>&nbsp;</p>
+          <p>{{ Comment.content }}
+            <p>&nbsp;</p>
         </div>
         <div class="customDivder"></div>
+        {% endfor %}
 
         <div class="row">
           <div class="col-sm-10">
@@ -58,7 +70,7 @@
           </div>
           <div class="col-sm-2">
             <br>
-            <button type="button" class="btn btn-primary commentButton">Add Image</button>
+            <br>
             <br>
             <button type="button" class="btn btn-primary commentButton">Post Comment</button>
           </div>
@@ -67,6 +79,7 @@
       </div>
     </div>
   </div>
+  {% endfor %}
 
   <div class="contentBox">
     <div class="row">
